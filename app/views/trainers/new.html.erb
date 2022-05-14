@@ -1,0 +1,23 @@
+<h1>New trainer</h1>
+
+<%= form_with(model: @trainer, data: {turbo: false}) do |f| %>
+    <fieldset class="mb-2">
+     <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+    </fieldset>
+     <fieldset class="mb-2">
+     <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+    </fieldset>
+     <fieldset class="mb-2">
+     <%= f.label :description %>
+    <%= f.text_field :description %>
+    </fieldset> 
+    <fieldset class="mb-2">
+    <%= f.label :user_id %>
+    <%= f.collection_select :user_id, @user, :id, :email %>
+    </fieldset>
+    <fieldset>
+    <%= f.submit %>
+    </fieldset>
+<% end %>

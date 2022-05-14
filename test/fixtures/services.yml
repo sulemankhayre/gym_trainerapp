@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product: MyString
+  description: MyString
+  location: MyString
+  length: MyString
+  cost: 1.5
+  date: 2022-05-13
+  trainer: one
+
+two:
+  product: MyString
+  description: MyString
+  location: MyString
+  length: MyString
+  cost: 1.5
+  date: 2022-05-13
+  trainer: two

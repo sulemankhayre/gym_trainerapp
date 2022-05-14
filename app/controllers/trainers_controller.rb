@@ -1,20 +1,48 @@
 class TrainersController < ApplicationController
-  
-  before_action :authenticate_user!
-    #first before action must
-
+  # DEBUG - REMOVE FOR PRODUCTION
+  skip_before_action :verify_authenticity_token
+  # before_action :authenticate_user!
+  before_action :set_trainer, only: [:show, :update, :destroy,:edit]
+  before_action :set_user, only: [:new,:edit]
   def index
     @trainer = Trainer.all
   end
 
   def show
-    begin
-     @trainer = Trainer.find(params[:id])
-    rescue
-     render plain: "Trainer not found!"
-    end
+  end
+  
+  def edit 
+  end 
+  def new 
+    @trainer = Trainer.new
+  end 
+  def create 
+    trainer = Trainer.create!(trainer_params)
+    redirect_to trainer
   end
 
-  def delete
+  def update 
+    @trainer.update(trainer_params)
+    redirect_to @trainer
+  end 
+
+  def destroy 
+  @trainer.destroy
+  redirect_to @trainer
+
   end
+
+  private 
+
+  def set_user
+  @user = User.order(:email)
+  end
+
+  def trainer_params
+    return params.require(:trainer).permit(:user_id, :first_name,:last_name,:description )
+  end 
+
+  def set_trainer
+  @trainer = Trainer.find(params[:id])
+  end 
 end
