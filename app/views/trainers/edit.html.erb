@@ -1,4 +1,4 @@
-<h1>New trainer</h1>
+<h1>Edit trainer</h1>
 
 <%= form_with(model: @trainer, data: {turbo: false}) do |f| %>
     <fieldset class="mb-2">
@@ -18,6 +18,6 @@
     <%= f.collection_select :user_id, @user, :id, :email %>
     </fieldset>
     <fieldset>
-    <%= f.submit %>
+    <%= f.submit%>
     </fieldset>
 <% end %>
