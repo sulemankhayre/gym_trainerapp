@@ -1,3 +1,4 @@
+<%= link_to 'New Service', services_path , class: "btn btn-primary" %>
 <div class="btn-toolbar mt-3">
 <%= link_to 'Edit', edit_trainer_path(@trainer), class: "btn btn-warning me-2" %>
 <%= button_to 'Delete', @trainer, class: "btn btn-danger", method: :delete, form: { data: { turbo_confirm:  "Are you sure you want to delete '#{@trainer.first_name}' ?" }}  %>
@@ -6,9 +7,14 @@
 <h1><%= @trainer.full_name%></h1>
 <h3><%= @trainer.description%></h3>
 
-<%= link_to 'New Service', services_path , class: "btn btn-primary" %>
+<% if @trainer.cover.attached? %>
+<%= cl_image_tag @trainer.cover.key, crop: :scale, width: 150, cloud_name: 'dyix4wifl' %>
+
+<% end %>
 
 
+
+<div>
 <% @services.each do | service | %>
 <%= link_to 'Edit Service',  edit_service_path(service.id)  , class: "btn btn-warning" %>
 <%= button_to 'Delete Service',service_path(service.id), class: "btn btn-danger", method: :delete, form: { data: { turbo_confirm:  "Are you sure you want to delete  ?" }}  %>
@@ -19,5 +25,5 @@
 <h1>Cost:<%= service.cost%></h1>
 <h1>Date:<%= service.date%></h1>
 <% end%>
-
+</div>
 

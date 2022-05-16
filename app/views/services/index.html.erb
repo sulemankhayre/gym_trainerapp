@@ -1,6 +1,7 @@
 <h1>New trainer</h1>
 
 <%= form_with(model: @service, data: {turbo: false}) do |f| %>
+
     <fieldset class="mb-2">
      <%= f.label :product %>
     <%= f.text_field :product %>

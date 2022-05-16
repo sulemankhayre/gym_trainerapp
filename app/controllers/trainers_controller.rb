@@ -40,7 +40,7 @@ class TrainersController < ApplicationController
   end
 
   def trainer_params
-    return params.require(:trainer).permit(:user_id, :first_name,:last_name,:description )
+    return params.require(:trainer).permit(:user_id, :first_name,:last_name,:description,:cover )
   end 
 
   def set_trainer
