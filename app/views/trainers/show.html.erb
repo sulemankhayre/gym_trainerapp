@@ -6,12 +6,12 @@
 <h1><%= @trainer.full_name%></h1>
 <h3><%= @trainer.description%></h3>
 
-<%= link_to 'New Service', new_service_path , class: "btn btn-primary" %>
+<%= link_to 'New Service', services_path , class: "btn btn-primary" %>
 
 
-<% @trainer.services.each do | service | %>
-<%= link_to 'Edit Service',  edit_service_path  , class: "btn btn-warning" %>
-<%= link_to 'Delete Service',  service_path  , class: "btn btn-danger" %>
+<% @services.each do | service | %>
+<%= link_to 'Edit Service',  edit_service_path(service.id)  , class: "btn btn-warning" %>
+<%= button_to 'Delete Service',service_path(service.id), class: "btn btn-danger", method: :delete, form: { data: { turbo_confirm:  "Are you sure you want to delete  ?" }}  %>
 <h1>Service type:<%= service.product%></h1>
 <h1>Description:<%= service.description%></h1>
 <h1>Location:<%= service.location%></h1>
