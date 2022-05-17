@@ -19,12 +19,18 @@
 <% @services.each do | service | %>
 <%= link_to 'Edit Service',  edit_service_path(service)  , class: "btn btn-warning" %>
 <%= button_to 'Delete Service',service_path(service), class: "btn btn-danger", method: :delete, form: { data: { turbo_confirm:  "Are you sure you want to delete  ?" }}  %>
-<h1>Service type:<%= service.product%></h1>
-<h1>Description:<%= service.description%></h1>
-<h1>Location:<%= service.location%></h1>
-<h1>Time: <%= service.length%></h1>
-<h1>Cost:<%= service.cost%></h1>
-<h1>Date:<%= service.date%></h1>
+<h3>Service type:</h3>
+<h4><%= service.product%></h1>
+<h3>Description:</h1>
+<h4><%= service.description%></h1>
+<h3>Location:</h1>
+<h4><%= service.location%></h1>
+<h3>Time:</h1>
+<h4> <%= service.length%></h1>
+<h3>Cost</h1>
+<h4><%= service.cost%></h1>
+<h3>Date</h1>
+<h4><%= service.date%></h1>
 
 <% end %>
 </div>
