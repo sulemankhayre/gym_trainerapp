@@ -1,7 +1,6 @@
 class TrainersController < ApplicationController
   # DEBUG - REMOVE FOR PRODUCTION
   skip_before_action :verify_authenticity_token
-  # before_action :authenticate_user!
   before_action :set_trainer, only: [:show, :update, :destroy,:edit,]
   before_action :set_user, only: [:new,:edit]
   def index

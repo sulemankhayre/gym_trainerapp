@@ -7,6 +7,10 @@ Trainers
 <% @trainer.each do |trainer|%>
     <div><%= link_to trainer.first_name , trainer %><%= link_to trainer.last_name, trainer %><p> <%= trainer.description %></p></div>
 
+<% if trainer.cover.attached? %>
+<%= cl_image_tag trainer.cover.key, crop: :scale, width: 150, cloud_name: 'dyix4wifl' %>
+
+<% end %>
 <% end %>
 
 

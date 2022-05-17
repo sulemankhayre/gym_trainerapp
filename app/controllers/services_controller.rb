@@ -2,6 +2,7 @@ class ServicesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def return_trainer
+  
   @trainer_id = current_user.trainer.id
   end
   def index
