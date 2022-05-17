@@ -1,6 +1,8 @@
 class Trainer < ApplicationRecord
   belongs_to :user
-  has_many :services
+
+  # fix rocket operator 
+  has_many :services, :dependent => :delete_all
 
   has_one_attached :cover
 

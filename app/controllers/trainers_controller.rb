@@ -9,6 +9,7 @@ class TrainersController < ApplicationController
   end
 
   def show
+    
     @services = @trainer.services.order(created_at: :desc)
   end
 

@@ -9,13 +9,20 @@ class ServicesController < ApplicationController
   def show
     @service = Service.find(params[:id])
   end
-  def create
+def create
     @service = Service.new(service_params)
-    @service.trainer_id = current_user.id
-    @service.save!
-    redirect_to @service
+    @service.trainer_id = service_params[:trainer_id]
+    if @service.save && @service.valid?
+      @trainer = Trainer.find(service_params[:trainer_id])
+      redirect_to @trainer
+    end
+  end
+  def new
+    @trainer_id = params[:trainer_id]
+    @service = Service.new
   end
   def edit
+    @trainer_id = params[:trainer_id]
     @service = Service.find(params[:id])
   end 
    def update 
@@ -34,7 +41,7 @@ class ServicesController < ApplicationController
   private 
 
     def service_params
-    return params.permit(:product, :description,:location )
+    return params.require(:service).permit(:product, :description,:location,:trainer_id )
   end 
 
   def service_edit_params
