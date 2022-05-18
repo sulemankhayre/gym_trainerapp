@@ -19,7 +19,7 @@
     </fieldset>
     <% if @trainer.cover.attached? %>
     <fieldset class="mb-2">
-        <%= cl_image_tag @trainer.cover.key, transformation: ["media_lib_thumb"], cloud_name: 'dyix4wifl' %>
+        <%= cl_image_tag @trainer.cover.key, transformation: ["media_lib_thumb"], cloud_name: ENV['CLOUDINARY_CLOUD_NAME'] %>
     </fieldset>
   <% end %>
     <fieldset class="mb-2">
