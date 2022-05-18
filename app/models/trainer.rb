@@ -7,6 +7,7 @@ class Trainer < ApplicationRecord
   has_one_attached :cover
   validates :first_name,:last_name, :description, presence: {message: 'Please provide a correct trainer'}
 
+
   # accepts_nested_attributes :services
   # view file:
   # form_for @trainer do |f|

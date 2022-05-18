@@ -3,7 +3,7 @@ class Service < ApplicationRecord
   has_many :orders
   has_many :customers, through: :orders
     
-  validates :product,:description, :location, presence: {message: 'Please provide a correct service'}
+  validates :product,:description, :location, presence: {message: 'Please provide a correct trainer'}
 
  
 end

@@ -10,7 +10,7 @@
 <h3><%= @trainer.description%></h3>
 
 <% if @trainer.cover.attached? %>
-<%= cl_image_tag @trainer.cover.key, crop: :scale, width: 150, cloud_name: 'dyix4wifl' %>
+<%= cl_image_tag @trainer.cover.key, crop: :scale, width: 150,cloud_name:ENV['CLOUDINARY_CLOUD_NAME']  %>
 
 <% end %>
 

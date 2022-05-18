@@ -22,7 +22,7 @@ class ServicesController < ApplicationController
       redirect_to @trainer
     else
     @trainer = Trainer.find(service_params[:trainer_id])
-    flash.now[:alert] = @service.errors.full_messages.join('<br>')
+    flash[:alert] = @service.errors.full_messages.join('<br>')
     redirect_to @trainer   
     end
   end
