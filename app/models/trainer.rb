@@ -5,7 +5,7 @@ class Trainer < ApplicationRecord
   has_many :services, :dependent => :delete_all
 
   has_one_attached :cover
-  validates :first_name,:last_name, :description, presence: {message: 'Please provide a correct trainer'}
+  #validates :first_name,:last_name, :description, presence: {message: 'Please provide a correct trainer'}
 
 
   # accepts_nested_attributes :services
